@@ -53,11 +53,14 @@ class FactsTableViewController: UITableViewController {
         
         cell.factImageView.image = UIImage(named: "placeholder")
         cell.descriptionLabel.text = nil
-        //
+    
         if let description = fact.description {
             cell.descriptionLabel.sizeToFit()
             cell.descriptionLabel.text = description
-            
+        }
+        
+        if let imageUrl =  fact.imageHref {
+            cell.factImageView.downloadImageFrom(link: imageUrl, contentMode: UIViewContentMode.scaleAspectFit)
         }
         return cell
     }
