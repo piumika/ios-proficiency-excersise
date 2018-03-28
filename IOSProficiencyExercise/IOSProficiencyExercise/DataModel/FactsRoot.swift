@@ -13,4 +13,8 @@ struct FactsRoot : Decodable {
     var rows : [Fact]
     let title: String
     
+    mutating func removeEmptyFacts()  {
+        self.rows = rows.filter { $0.titleIsNotNullOrEmpty()}
+    }
+    
 }

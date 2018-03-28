@@ -26,6 +26,7 @@ class FactsService {
             
             if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
                 let results = self.decodeJsonData(data)
+                
                 completion(results)
             }
             
@@ -43,6 +44,12 @@ class FactsService {
             
         } catch let decodeError as NSError {
             print( "JSON Decoding error: \(decodeError.localizedDescription)" )
+        }
+        
+
+        if var result = decodedResult {
+            result.removeEmptyFacts()
+            return result
         }
         
         return decodedResult

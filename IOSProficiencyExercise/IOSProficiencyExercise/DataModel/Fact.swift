@@ -13,5 +13,15 @@ struct Fact : Decodable {
     let title: String?
     let description: String?
     let imageHref: String?
+    
+    func titleIsNotNullOrEmpty() -> Bool {
+        
+        if let title = title ,  title.isEmpty == false {
+            return true
+        }
+        
+        return false
+        
+    }
 
 }
