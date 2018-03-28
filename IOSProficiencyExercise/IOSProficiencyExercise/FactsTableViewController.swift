@@ -15,8 +15,9 @@ class FactsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchFactsDataAndPopulateUI()
+        fetchFactsDataAndPopulateUI(isRefresh: false)
         customizeTableView()
+        createRefreshController()
         
     }
     
@@ -53,7 +54,7 @@ class FactsTableViewController: UITableViewController {
         
         cell.factImageView.image = UIImage(named: "placeholder")
         cell.descriptionLabel.text = nil
-    
+        
         if let description = fact.description {
             cell.descriptionLabel.sizeToFit()
             cell.descriptionLabel.text = description
@@ -71,7 +72,7 @@ class FactsTableViewController: UITableViewController {
         
     }
     
-    func fetchFactsDataAndPopulateUI() -> Void {
+    func fetchFactsDataAndPopulateUI(isRefresh : Bool) -> Void {
         FactsService().getResults() {
             (result: FactsRoot?) in
             
@@ -83,23 +84,44 @@ class FactsTableViewController: UITableViewController {
                 title = factsResult.title
                 
             }
-            self.setNavigationBarTitle(title: title)
-            self.populateTableView(facts: facts)
             
+            DispatchQueue.main.async {
+                
+                self.setNavigationBarTitle(title: title)
+                self.populateTableView(facts: facts)
+                
+                if let refreshControl = self.refreshControl , isRefresh
+                {
+                    refreshControl.endRefreshing()
+                }
+                
+            }
         }
     }
     
     func setNavigationBarTitle(title : String) -> Void {
-        DispatchQueue.main.async {
-            self.title = title
-        }
+        self.title = title
     }
     
     func populateTableView(facts : [Fact]) -> Void {
         self.facts = facts
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        self.tableView.reloadData()
+        
+    }
+    
+    func createRefreshController() -> Void {
+        refreshControl = UIRefreshControl()
+        
+        if let refreshControl = refreshControl {
+            refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+            refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+            
         }
+    }
+    
+    @objc func refresh(refreshControl: UIRefreshControl) {
+        
+        fetchFactsDataAndPopulateUI(isRefresh: true)
     }
     
 }
