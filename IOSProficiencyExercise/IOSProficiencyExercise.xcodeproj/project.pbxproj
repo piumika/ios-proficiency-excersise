@@ -13,6 +13,9 @@
 		CC64CC13206B882200BDEE00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC64CC11206B882200BDEE00 /* LaunchScreen.storyboard */; };
 		CC64CC1D206B894F00BDEE00 /* FactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC64CC1C206B894F00BDEE00 /* FactsTableViewController.swift */; };
 		CC64CC1F206BC85B00BDEE00 /* FactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC64CC1E206BC85B00BDEE00 /* FactTableViewCell.swift */; };
+		CC64CC21206BD08C00BDEE00 /* FactsRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC64CC20206BD08C00BDEE00 /* FactsRoot.swift */; };
+		CC64CC23206BD0CF00BDEE00 /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC64CC22206BD0CF00BDEE00 /* Fact.swift */; };
+		CC64CC27206BD1C200BDEE00 /* FactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC64CC26206BD1C200BDEE00 /* FactsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		CC64CC14206B882200BDEE00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC64CC1C206B894F00BDEE00 /* FactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsTableViewController.swift; sourceTree = "<group>"; };
 		CC64CC1E206BC85B00BDEE00 /* FactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactTableViewCell.swift; sourceTree = "<group>"; };
+		CC64CC20206BD08C00BDEE00 /* FactsRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsRoot.swift; sourceTree = "<group>"; };
+		CC64CC22206BD0CF00BDEE00 /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
+		CC64CC26206BD1C200BDEE00 /* FactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 		CC64CC07206B882200BDEE00 /* IOSProficiencyExercise */ = {
 			isa = PBXGroup;
 			children = (
+				CC64CC25206BD13400BDEE00 /* Service */,
+				CC64CC24206BD11100BDEE00 /* DataModel */,
 				CC64CC08206B882200BDEE00 /* AppDelegate.swift */,
 				CC64CC0C206B882200BDEE00 /* Main.storyboard */,
 				CC64CC1E206BC85B00BDEE00 /* FactTableViewCell.swift */,
@@ -65,6 +73,23 @@
 				CC64CC14206B882200BDEE00 /* Info.plist */,
 			);
 			path = IOSProficiencyExercise;
+			sourceTree = "<group>";
+		};
+		CC64CC24206BD11100BDEE00 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC64CC20206BD08C00BDEE00 /* FactsRoot.swift */,
+				CC64CC22206BD0CF00BDEE00 /* Fact.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		CC64CC25206BD13400BDEE00 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CC64CC26206BD1C200BDEE00 /* FactsService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +166,10 @@
 			files = (
 				CC64CC1F206BC85B00BDEE00 /* FactTableViewCell.swift in Sources */,
 				CC64CC09206B882200BDEE00 /* AppDelegate.swift in Sources */,
+				CC64CC23206BD0CF00BDEE00 /* Fact.swift in Sources */,
+				CC64CC27206BD1C200BDEE00 /* FactsService.swift in Sources */,
 				CC64CC1D206B894F00BDEE00 /* FactsTableViewController.swift in Sources */,
+				CC64CC21206BD08C00BDEE00 /* FactsRoot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
