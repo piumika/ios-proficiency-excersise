@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ FactsRoot structure represents the root object of the JSON structure
+ */
+
 struct FactsRoot : Decodable {
     
     var rows : [Fact]

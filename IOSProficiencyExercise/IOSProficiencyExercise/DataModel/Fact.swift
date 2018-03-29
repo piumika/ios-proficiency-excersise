@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ Fact structure represents each row element of the JSON structure
+ */
+
 struct Fact : Decodable {
     
     let title: String?

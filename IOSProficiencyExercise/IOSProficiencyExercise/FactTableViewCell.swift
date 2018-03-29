@@ -8,6 +8,10 @@
 
 import UIKit
 
+/*
+ Custom table view cell that is used for displaying each fact
+ */
+
 class FactTableViewCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!

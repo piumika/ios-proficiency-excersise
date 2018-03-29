@@ -8,6 +8,10 @@
 
 import UIKit
 
+/*
+ CustomTableViewController that is used for displaying the facts 
+ */
+
 class FactsTableViewController: UITableViewController {
     
     var facts: [Fact] = []

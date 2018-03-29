@@ -8,9 +8,17 @@
 
 import Foundation
 
+/*
+ This Service Class is used for retrieving data from the facts REST webservice
+ */
+
 class FactsService {
     
     let url =  URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json" )
+    
+    /*
+     getResults method is used for retrieving data from the webservice. A completiong handler can be provided as an argument. This completion hander will be called once the data retrieval is completed
+     */
     
     func getResults(completion: @escaping (_ result: FactsRoot?) -> Void) {
         
@@ -34,6 +42,10 @@ class FactsService {
         task.resume()
     }
     
+    /*
+     dacodeJsonData is an utility function that is useful for decoding JSON data to a FactsRoot structure
+     */
+    
     func decodeJsonData(_ data: Data) -> FactsRoot?{
         
         var decodedResult : FactsRoot? = nil
@@ -46,7 +58,7 @@ class FactsService {
             print( "JSON Decoding error: \(decodeError.localizedDescription)" )
         }
         
-
+        
         if var result = decodedResult {
             result.removeEmptyFacts()
             return result
